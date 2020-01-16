@@ -13,6 +13,19 @@ namespace Notatnik
 {
     public partial class Form1 : Form
     {
+        private string _fileName;
+
+        private string FileName
+        {
+            get => _fileName;
+            set
+            {
+                _fileName = value;
+                int lastSlash = FileName.LastIndexOf('\\');
+                toolStripStatusLabel1.Text = FileName.Substring(lastSlash + 1);
+            }
+        }
+
         public Form1()
         {
             InitializeComponent();
@@ -60,7 +73,7 @@ namespace Notatnik
             switch (result)
             {
                 case DialogResult.Yes:
-                    throw new NotImplementedException();
+                    SaveTextToFile();
                     break;
                 case DialogResult.No:
                     break;
@@ -86,12 +99,26 @@ namespace Notatnik
 
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
-                var fileName = fileDialog.FileName;
-                textBox1.Lines = ReadTextFile(fileName);
-
-                int lastSlash = fileName.LastIndexOf('\\');
-                toolStripStatusLabel1.Text = fileName.Substring(lastSlash + 1);
+                FileName = fileDialog.FileName;
+                
+                textBox1.Lines = ReadTextFile(FileName);
             }
+        }
+
+        private void SaveTextToFile()
+        {
+            if (FileName?.Length > 0)
+                saveFileDialog1.FileName = FileName;
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                FileName = saveFileDialog1.FileName;
+                File.WriteAllLines(FileName, textBox1.Lines);
+            }
+        }
+
+        private void ZapiszJakoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveTextToFile();
         }
     }
 }

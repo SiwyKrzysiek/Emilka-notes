@@ -47,6 +47,7 @@
             this.zaznaczWszystkoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.widokToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasekStanuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -54,11 +55,11 @@
             // textBox1
             // 
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(0, 40);
+            this.textBox1.Location = new System.Drawing.Point(0, 42);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(983, 587);
+            this.textBox1.Size = new System.Drawing.Size(983, 585);
             this.textBox1.TabIndex = 0;
             // 
             // statusStrip1
@@ -88,7 +89,7 @@
             this.widokToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(983, 40);
+            this.menuStrip1.Size = new System.Drawing.Size(983, 42);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -100,7 +101,7 @@
             this.toolStripMenuItem1,
             this.zamknijToolStripMenuItem});
             this.plikToolStripMenuItem.Name = "plikToolStripMenuItem";
-            this.plikToolStripMenuItem.Size = new System.Drawing.Size(72, 36);
+            this.plikToolStripMenuItem.Size = new System.Drawing.Size(72, 38);
             this.plikToolStripMenuItem.Text = "Plik";
             // 
             // owtórzToolStripMenuItem
@@ -117,6 +118,7 @@
             this.zapiszJakoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.zapiszJakoToolStripMenuItem.Size = new System.Drawing.Size(363, 44);
             this.zapiszJakoToolStripMenuItem.Text = "Zapisz jako...";
+            this.zapiszJakoToolStripMenuItem.Click += new System.EventHandler(this.ZapiszJakoToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -140,7 +142,7 @@
             this.usuńToolStripMenuItem,
             this.zaznaczWszystkoToolStripMenuItem});
             this.eycjaToolStripMenuItem.Name = "eycjaToolStripMenuItem";
-            this.eycjaToolStripMenuItem.Size = new System.Drawing.Size(88, 36);
+            this.eycjaToolStripMenuItem.Size = new System.Drawing.Size(88, 38);
             this.eycjaToolStripMenuItem.Text = "Eycja";
             // 
             // cofnijToolStripMenuItem
@@ -184,7 +186,7 @@
             this.widokToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pasekStanuToolStripMenuItem});
             this.widokToolStripMenuItem.Name = "widokToolStripMenuItem";
-            this.widokToolStripMenuItem.Size = new System.Drawing.Size(103, 36);
+            this.widokToolStripMenuItem.Size = new System.Drawing.Size(103, 38);
             this.widokToolStripMenuItem.Text = "Widok";
             // 
             // pasekStanuToolStripMenuItem
@@ -196,6 +198,12 @@
             this.pasekStanuToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.pasekStanuToolStripMenuItem.Text = "Pasek stanu";
             this.pasekStanuToolStripMenuItem.Click += new System.EventHandler(this.PasekStanuToolStripMenuItem_Click);
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.DefaultExt = "txt";
+            this.saveFileDialog1.InitialDirectory = ".";
+            this.saveFileDialog1.Title = "Zapisz do pliku";
             // 
             // Form1
             // 
@@ -239,6 +247,7 @@
         private System.Windows.Forms.ToolStripMenuItem zaznaczWszystkoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem widokToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pasekStanuToolStripMenuItem;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 
