@@ -54,11 +54,11 @@
             // textBox1
             // 
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(0, 42);
+            this.textBox1.Location = new System.Drawing.Point(0, 40);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(983, 585);
+            this.textBox1.Size = new System.Drawing.Size(983, 587);
             this.textBox1.TabIndex = 0;
             // 
             // statusStrip1
@@ -88,7 +88,7 @@
             this.widokToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(983, 42);
+            this.menuStrip1.Size = new System.Drawing.Size(983, 40);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -100,7 +100,7 @@
             this.toolStripMenuItem1,
             this.zamknijToolStripMenuItem});
             this.plikToolStripMenuItem.Name = "plikToolStripMenuItem";
-            this.plikToolStripMenuItem.Size = new System.Drawing.Size(72, 38);
+            this.plikToolStripMenuItem.Size = new System.Drawing.Size(72, 36);
             this.plikToolStripMenuItem.Text = "Plik";
             // 
             // owtórzToolStripMenuItem
@@ -109,6 +109,7 @@
             this.owtórzToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.owtórzToolStripMenuItem.Size = new System.Drawing.Size(363, 44);
             this.owtórzToolStripMenuItem.Text = "Owtórz...";
+            this.owtórzToolStripMenuItem.Click += new System.EventHandler(this.OwtórzToolStripMenuItem_Click);
             // 
             // zapiszJakoToolStripMenuItem
             // 
@@ -139,7 +140,7 @@
             this.usuńToolStripMenuItem,
             this.zaznaczWszystkoToolStripMenuItem});
             this.eycjaToolStripMenuItem.Name = "eycjaToolStripMenuItem";
-            this.eycjaToolStripMenuItem.Size = new System.Drawing.Size(88, 38);
+            this.eycjaToolStripMenuItem.Size = new System.Drawing.Size(88, 36);
             this.eycjaToolStripMenuItem.Text = "Eycja";
             // 
             // cofnijToolStripMenuItem
@@ -183,7 +184,7 @@
             this.widokToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pasekStanuToolStripMenuItem});
             this.widokToolStripMenuItem.Name = "widokToolStripMenuItem";
-            this.widokToolStripMenuItem.Size = new System.Drawing.Size(103, 38);
+            this.widokToolStripMenuItem.Size = new System.Drawing.Size(103, 36);
             this.widokToolStripMenuItem.Text = "Widok";
             // 
             // pasekStanuToolStripMenuItem

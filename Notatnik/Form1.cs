@@ -76,5 +76,22 @@ namespace Notatnik
         {
             statusStrip1.Visible = pasekStanuToolStripMenuItem.Checked;
         }
+
+        private void OwtórzToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var fileDialog = new OpenFileDialog();
+            fileDialog.DefaultExt = "txt";
+            fileDialog.Title = "Wczytaj plik";
+            fileDialog.InitialDirectory = ".";
+
+            if (fileDialog.ShowDialog() == DialogResult.OK)
+            {
+                var fileName = fileDialog.FileName;
+                textBox1.Lines = ReadTextFile(fileName);
+
+                int lastSlash = fileName.LastIndexOf('\\');
+                toolStripStatusLabel1.Text = fileName.Substring(lastSlash + 1);
+            }
+        }
     }
 }
