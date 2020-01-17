@@ -48,6 +48,14 @@
             this.widokToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasekStanuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.drukujToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
+            this.ustawienieWydrukuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.podgladWydrukuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -81,7 +89,6 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.plikToolStripMenuItem,
@@ -99,6 +106,10 @@
             this.owtórzToolStripMenuItem,
             this.zapiszJakoToolStripMenuItem,
             this.toolStripMenuItem1,
+            this.ustawienieWydrukuToolStripMenuItem,
+            this.podgladWydrukuToolStripMenuItem,
+            this.drukujToolStripMenuItem,
+            this.toolStripMenuItem2,
             this.zamknijToolStripMenuItem});
             this.plikToolStripMenuItem.Name = "plikToolStripMenuItem";
             this.plikToolStripMenuItem.Size = new System.Drawing.Size(72, 38);
@@ -148,38 +159,44 @@
             // cofnijToolStripMenuItem
             // 
             this.cofnijToolStripMenuItem.Name = "cofnijToolStripMenuItem";
-            this.cofnijToolStripMenuItem.Size = new System.Drawing.Size(335, 44);
+            this.cofnijToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.cofnijToolStripMenuItem.Text = "Cofnij";
+            this.cofnijToolStripMenuItem.Click += new System.EventHandler(this.cofnijToolStripMenuItem_Click);
             // 
             // wytnijToolStripMenuItem
             // 
             this.wytnijToolStripMenuItem.Name = "wytnijToolStripMenuItem";
-            this.wytnijToolStripMenuItem.Size = new System.Drawing.Size(335, 44);
+            this.wytnijToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.wytnijToolStripMenuItem.Text = "Wytnij";
+            this.wytnijToolStripMenuItem.Click += new System.EventHandler(this.wytnijToolStripMenuItem_Click);
             // 
             // kopiujToolStripMenuItem
             // 
             this.kopiujToolStripMenuItem.Name = "kopiujToolStripMenuItem";
-            this.kopiujToolStripMenuItem.Size = new System.Drawing.Size(335, 44);
+            this.kopiujToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.kopiujToolStripMenuItem.Text = "Kopiuj";
+            this.kopiujToolStripMenuItem.Click += new System.EventHandler(this.kopiujToolStripMenuItem_Click);
             // 
             // wklejToolStripMenuItem
             // 
             this.wklejToolStripMenuItem.Name = "wklejToolStripMenuItem";
-            this.wklejToolStripMenuItem.Size = new System.Drawing.Size(335, 44);
+            this.wklejToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.wklejToolStripMenuItem.Text = "Wklej";
+            this.wklejToolStripMenuItem.Click += new System.EventHandler(this.wklejToolStripMenuItem_Click);
             // 
             // usuńToolStripMenuItem
             // 
             this.usuńToolStripMenuItem.Name = "usuńToolStripMenuItem";
-            this.usuńToolStripMenuItem.Size = new System.Drawing.Size(335, 44);
+            this.usuńToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.usuńToolStripMenuItem.Text = "Usuń";
+            this.usuńToolStripMenuItem.Click += new System.EventHandler(this.usuńToolStripMenuItem_Click);
             // 
             // zaznaczWszystkoToolStripMenuItem
             // 
             this.zaznaczWszystkoToolStripMenuItem.Name = "zaznaczWszystkoToolStripMenuItem";
-            this.zaznaczWszystkoToolStripMenuItem.Size = new System.Drawing.Size(335, 44);
+            this.zaznaczWszystkoToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
             this.zaznaczWszystkoToolStripMenuItem.Text = "Zaznacz wszystko";
+            this.zaznaczWszystkoToolStripMenuItem.Click += new System.EventHandler(this.zaznaczWszystkoToolStripMenuItem_Click);
             // 
             // widokToolStripMenuItem
             // 
@@ -195,7 +212,7 @@
             this.pasekStanuToolStripMenuItem.CheckOnClick = true;
             this.pasekStanuToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.pasekStanuToolStripMenuItem.Name = "pasekStanuToolStripMenuItem";
-            this.pasekStanuToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.pasekStanuToolStripMenuItem.Size = new System.Drawing.Size(273, 44);
             this.pasekStanuToolStripMenuItem.Text = "Pasek stanu";
             this.pasekStanuToolStripMenuItem.Click += new System.EventHandler(this.PasekStanuToolStripMenuItem_Click);
             // 
@@ -204,6 +221,56 @@
             this.saveFileDialog1.DefaultExt = "txt";
             this.saveFileDialog1.InitialDirectory = ".";
             this.saveFileDialog1.Title = "Zapisz do pliku";
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.Document = this.printDocument1;
+            this.printDialog1.UseEXDialog = true;
+            // 
+            // drukujToolStripMenuItem
+            // 
+            this.drukujToolStripMenuItem.Name = "drukujToolStripMenuItem";
+            this.drukujToolStripMenuItem.Size = new System.Drawing.Size(363, 44);
+            this.drukujToolStripMenuItem.Text = "Drukuj";
+            this.drukujToolStripMenuItem.Click += new System.EventHandler(this.drukujToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(360, 6);
+            // 
+            // pageSetupDialog1
+            // 
+            this.pageSetupDialog1.Document = this.printDocument1;
+            // 
+            // ustawienieWydrukuToolStripMenuItem
+            // 
+            this.ustawienieWydrukuToolStripMenuItem.Name = "ustawienieWydrukuToolStripMenuItem";
+            this.ustawienieWydrukuToolStripMenuItem.Size = new System.Drawing.Size(363, 44);
+            this.ustawienieWydrukuToolStripMenuItem.Text = "Ustawienie wydruku";
+            this.ustawienieWydrukuToolStripMenuItem.Click += new System.EventHandler(this.ustawienieWydrukuToolStripMenuItem_Click);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // podgladWydrukuToolStripMenuItem
+            // 
+            this.podgladWydrukuToolStripMenuItem.Name = "podgladWydrukuToolStripMenuItem";
+            this.podgladWydrukuToolStripMenuItem.Size = new System.Drawing.Size(363, 44);
+            this.podgladWydrukuToolStripMenuItem.Text = "Podglad wydruku";
+            this.podgladWydrukuToolStripMenuItem.Click += new System.EventHandler(this.podgladWydrukuToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -248,6 +315,14 @@
         private System.Windows.Forms.ToolStripMenuItem widokToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pasekStanuToolStripMenuItem;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintDialog printDialog1;
+        private System.Windows.Forms.ToolStripMenuItem drukujToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
+        private System.Windows.Forms.ToolStripMenuItem ustawienieWydrukuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem podgladWydrukuToolStripMenuItem;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }
 

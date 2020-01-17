@@ -14,6 +14,7 @@ namespace Notatnik
     public partial class Form1 : Form
     {
         private string _fileName;
+        private StringReader stringReader = null;
 
         private string FileName
         {
@@ -119,6 +120,83 @@ namespace Notatnik
         private void ZapiszJakoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveTextToFile();
+        }
+
+        private void cofnijToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            textBox1.Undo();
+        }
+
+        private void wytnijToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            textBox1.Cut();
+        }
+
+        private void kopiujToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            textBox1.Copy();
+        }
+
+        private void wklejToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            textBox1.Paste();
+        }
+
+        private void usuńToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            textBox1.SelectedText = "";
+        }
+
+        private void zaznaczWszystkoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            textBox1.SelectAll();
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            var font = textBox1.Font;
+            var rowHeight = (int)font.GetHeight(e.Graphics);
+            var lineCount = e.MarginBounds.Height / rowHeight;
+
+            if (stringReader == null)
+                stringReader = new StringReader(textBox1.Text);
+
+            e.HasMorePages = true;
+
+            for (int i = 0; i < lineCount; i++)
+            {
+                var row = stringReader.ReadLine();
+                if (row == null)
+                {
+                    e.HasMorePages = false;
+                    stringReader = null;
+                    break;
+                }
+
+                e.Graphics.DrawString(row, font, Brushes.Black,
+                    e.MarginBounds.Left, e.MarginBounds.Top + i * rowHeight);
+            }
+
+            
+        }
+
+        private void drukujToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                printDocument1.DocumentName = toolStripStatusLabel1.Text;
+                printDocument1.Print();
+            }
+        }
+
+        private void ustawienieWydrukuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pageSetupDialog1.ShowDialog();
+        }
+
+        private void podgladWydrukuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            printPreviewDialog1.ShowDialog();
         }
     }
 }
